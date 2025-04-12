@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swetali Panda| Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Swetali Panda</h1>
+    <p id="typedText"></p>
+    <nav>
+      <div class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button id="darkToggle">🌙 Toggle Dark Mode</button>
+  </header>
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="profile-container">
+      <img src="Swetali pic.jpeg" alt="Your Profile Picture" class="profile-img">
+    </div>
+    <p>Enthusiastic and self-motivated Website Developer with a solid foundation in front-end and back-end technologies. Recently completed B.tech in ETC, with hands-on experience in building responsive, user-friendly websites through personal projects. Eager to contribute to a dynamic development team and grow as a web professional.</p>
+  </section>
+
+  <section id="projects" data-animation="slideInLeftAnimation">
+    <h2>Projects</h2>
+    <div class="project" data-animation="zoomInAnimation">
+      <h3>Basic Calculator</h3>
+      <p>Created a basic calculator using HTML, CSS and JavaScript. The Calculator includes all basic functions like *, /, %, - and +.</p>
+    </div>
+  </section>
+  
+  <section id="contact" data-animation="slideInRightAnimation">
+    <section id="contact" data-aos="fade-up">
+        <h2>Contact Me</h2>
+        <form data-aos="flip-left">
+          <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button> 
+        </form>
+      </section>
+
+  <footer>
+    <p>&copy; 2025 Your Name. All rights reserved.</p>
+  </footer>
+
+  <button id="scrollTopBtn" title="Go to top">⬆️</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+  
+  

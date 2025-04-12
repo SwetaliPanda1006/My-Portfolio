@@ -1,0 +1,227 @@
+/* Reset & base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    line-height: 1.6;
+    background: #f9f9f9;
+    color: #333;
+    padding: 20px;
+  }
+  
+  /* Sections */
+  header, section, footer {
+    margin-bottom: 40px;
+  }
+  
+  header {
+    text-align: center;
+  }
+  
+  /* Navigation styles */
+  nav {
+    text-align: center;
+    margin-top: 10px;
+    position: relative;
+  }
+  
+  .menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    z-index: 100;
+  }
+  
+  .nav-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: #0077cc;
+  }
+  
+  /* Headings */
+  h2 {
+    margin-bottom: 10px;
+  }
+  
+  /* Projects section */
+  .project {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Contact form */
+  form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+  
+  form button {
+    padding: 10px 20px;
+    background: #0077cc;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Dark mode toggle */
+  #darkToggle {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Dark mode styles */
+  body.dark-mode {
+    background: #121212;
+    color: #f0f0f0;
+  }
+  
+  body.dark-mode .project {
+    background: #1f1f1f;
+    border-color: #333;
+  }
+  
+  body.dark-mode a {
+    color: #66b2ff;
+  }
+  
+  /* Scroll-to-top button */
+  #scrollTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 10px 15px;
+    font-size: 18px;
+    display: none;
+    background: #0077cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #scrollTopBtn:hover {
+    background: #005fa3;
+  }
+  
+  /* Responsive navigation */
+  @media screen and (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+  
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      background: #f4f4f4;
+      padding: 15px;
+      position: absolute;
+      top: 40px;
+      left: 0;
+      right: 0;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  /* Fade-in animation */
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Slide-in from left */
+  @keyframes slideInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Slide-in from right */
+  @keyframes slideInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Zoom-in */
+  @keyframes zoomIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+/* Profile image styling */
+.profile-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* Ensures the image fits within the box without distortion */
+    border-radius: 50%; /* Makes the image circular */
+    border: 5px solid #0077cc; /* Adds a border around the profile picture */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    transition: transform 0.3s ease;
+  }
+  
+  .profile-img:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+  }
+    
+      
