@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swetali Panda | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --dark-rose: #831843;
+            --font-curvy: 'Great Vibes', cursive;
+            --font-elegant: 'Playfair Display', serif;
+        }
+
+        body { 
+            margin: 0; 
+            font-family: var(--font-elegant);
+            background: linear-gradient(180deg, #ffffff 0%, #fbcfe8 50%, #db2777 100%);
+            background-attachment: fixed;
+            color: var(--dark-rose);
+            overflow-x: hidden;
+        }
+
+        /* MAGICAL INTRO */
+        #magic-intro {
+            position: fixed;
+            inset: 0;
+            background: #4c0519;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .fade-out { opacity: 0; visibility: hidden; pointer-events: none; }
+
+        /* STICKY NAV LOGIC */
+        .nav-wrapper {
+            position: fixed; /* Changed to fixed for better control */
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9000;
+            opacity: 0; /* Hidden by default */
+            pointer-events: none;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        /* Show nav only when this class is added via JS */
+        .nav-wrapper.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .capsule-nav {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            padding: 8px;
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            display: flex;
+            gap: 5px;
+            box-shadow: 0 10px 40px rgba(131, 24, 67, 0.1);
+        }
+
+        .nav-item {
+            padding: 10px 20px;
+            border-radius: 9999px;
+            cursor: pointer;
+            font-weight: 800;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .nav-item.active { background: var(--dark-rose); color: white; }
+
+        /* EDUCATION STYLING */
+        .edu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 1px solid rgba(131, 24, 67, 0.1);
+            padding: 2rem 0;
+        }
+        .edu-frame {
+            border: 2px solid var(--dark-rose);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            width: 65%;
+            position: relative;
+        }
+        .edu-year {
+            font-weight: 900;
+            font-size: 1.5rem;
+            opacity: 0.4;
+            width: 25%;
+            text-align: right;
+        }
+
+        .project-card.hidden { display: none; }
+        
+        input, textarea { transition: all 0.3s ease; }
+        input:focus, textarea:focus { background: white; box-shadow: 0 0 20px rgba(219, 39, 119, 0.2); }
+    </style>
+</head>
+<body>
+
+    <!-- 1. INTRO SCREEN -->
+    <div id="magic-intro">
+        <img src="Profile SP.jpg" alt="Profile" class="w-64 h-64 rounded-full border-8 border-white/20 mb-6 object-cover" data-aos="zoom-in">
+        <h1 class="text-white text-7xl font-curvy" data-aos="fade-up" data-aos-delay="400">Swetali Panda</h1>
+        <button onclick="startExperience()" class="mt-10 px-12 py-4 border border-white/30 text-white rounded-full uppercase tracking-widest text-xs hover:bg-white hover:text-rose-950 transition duration-700">Explore</button>
+    </div>
+
+    <!-- 2. ABOUT SECTION -->
+    <section id="about" class="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 max-w-6xl mx-auto gap-20 pt-20">
+        <div class="w-full md:w-1/2" data-aos="fade-right" data-aos-duration="1200">
+            <div class="rounded-[4rem] overflow-hidden shadow-2xl border-[12px] border-white/50">
+                <img src="realp.jpg" alt="The Creator" class="w-full h-[550px] object-cover">
+            </div>
+        </div>
+
+        <div class="w-full md:w-1/2" data-aos="fade-left" data-aos-delay="300">
+            <h2 class="text-8xl font-curvy mb-6">About Me</h2>
+            <p class="text-2xl leading-relaxed italic mb-6 font-light">Data Analyst & Creative Strategist</p>
+            <div class="space-y-4 text-lg opacity-90">
+                <p><strong>The Logic:</strong> Python, SQL, Tableau, Power BI.</p>
+                <p><strong>The Build:</strong> React, Tailwind, Shopify, Wix.</p>
+                <p><strong>The Aesthetic:</strong> Figma, Canva, Premiere Pro.</p>
+                <p class="pt-4 border-t border-rose-200">Lifestyle creator with <b>16K+ followers</b>, merging data insights with digital trends.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. EDUCATION SECTION -->
+    <section id="education" class="py-32 px-6 max-w-5xl mx-auto">
+        <h2 class="text-7xl font-curvy mb-16 text-center" data-aos="fade-up">Education</h2>
+        
+        <div class="space-y-8">
+            <!-- Item 1 -->
+            <div class="edu-item" data-aos="fade-right">
+                <div class="edu-frame">
+                    <h3 class="text-2xl font-bold">B.tech (Electronics & Telecommunication)</h3>
+                    <p class="italic">Parala Maharaja Engineering College, Berhmapur</p>
+                    <p class="text-sm mt-2 opacity-70">Specialized in antenna designs using MATLAB - 8.5 CGPA</p>
+                </div>
+                <div class="edu-year" data-aos="fade-left">2020 - 2024</div>
+            </div>
+            <div class="edu-item" data-aos="fade-right">
+                <div class="edu-frame">
+                    <h3 class="text-2xl font-bold">Intermediate</h3>
+                    <p class="italic">St. Vincent's Convent Sr. Sec. School, Balasore</p>
+                    <p class="text-sm mt-2 opacity-70">Physics, Chemistry, Mathematics - 73.2% Marks</p>
+                </div>
+                <div class="edu-year" data-aos="fade-left">2019 - 2020</div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="edu-item" data-aos="fade-right" data-aos-delay="200">
+                <div class="edu-frame">
+                    <h3 class="text-2xl font-bold">Matriculation</h3>
+                    <p class="italic">St. Vincent's Convent Sr. Sec. School, Balasore</p>
+                    <p class="text-sm mt-2 opacity-70">Science - 75.6% Marks</p>
+                </div>
+                <div class="edu-year" data-aos="fade-left" data-aos-delay="200">2017 - 2018</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. NAV (Controlled by JS to only show in Projects) -->
+    <div id="sticky-nav" class="nav-wrapper">
+        <nav class="capsule-nav">
+            <div class="nav-item active" onclick="filterGallery('all', this)">All</div>
+            <div class="nav-item" onclick="filterGallery('tech', this)">Tech</div>
+            <div class="nav-item" onclick="filterGallery('analysis', this)">Data Analysis</div>
+            <div class="nav-item" onclick="filterGallery('design', this)">Design</div>
+        </nav>
+    </div>
+
+    <!-- 5. PROJECT GALLERY -->
+    <section id="projects" class="py-24 px-6 max-w-7xl mx-auto min-h-screen">
+        <h2 class="text-7xl font-curvy mb-16 text-center" data-aos="fade-up">Portfolio</h2>
+        <div id="gallery" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- Card 1 -->
+            <div class="project-card" data-category="tech" data-aos="zoom-in">
+                <div class="bg-white/40 p-5 rounded-[3rem] backdrop-blur-lg border border-white/50 shadow-xl">
+                    <img src="tech-img.jpg" class="w-full h-64 object-cover rounded-[2.5rem] mb-6">
+                    <div class="px-4 text-center">
+                        <h3 class="text-2xl font-bold mb-4 italic">Modern Storefront</h3>
+                        <a href="#" class="inline-block px-8 py-2 rounded-full border border-rose-900 font-bold text-xs uppercase hover:bg-rose-900 hover:text-white transition">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="tech" data-aos="zoom-in">
+                <div class="bg-white/40 p-5 rounded-[3rem] backdrop-blur-lg border border-white/50 shadow-xl">
+                    <img src="tech-img.jpg" class="w-full h-64 object-cover rounded-[2.5rem] mb-6">
+                    <div class="px-4 text-center">
+                        <h3 class="text-2xl font-bold mb-4 italic">Modern Storefront</h3>
+                        <a href="#" class="inline-block px-8 py-2 rounded-full border border-rose-900 font-bold text-xs uppercase hover:bg-rose-900 hover:text-white transition">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="tech" data-aos="zoom-in">
+                <div class="bg-white/40 p-5 rounded-[3rem] backdrop-blur-lg border border-white/50 shadow-xl">
+                    <img src="tech-img.jpg" class="w-full h-64 object-cover rounded-[2.5rem] mb-6">
+                    <div class="px-4 text-center">
+                        <h3 class="text-2xl font-bold mb-4 italic">Modern Storefront</h3>
+                        <a href="#" class="inline-block px-8 py-2 rounded-full border border-rose-900 font-bold text-xs uppercase hover:bg-rose-900 hover:text-white transition">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="tech" data-aos="zoom-in">
+                <div class="bg-white/40 p-5 rounded-[3rem] backdrop-blur-lg border border-white/50 shadow-xl">
+                    <img src="tech-img.jpg" class="w-full h-64 object-cover rounded-[2.5rem] mb-6">
+                    <div class="px-4 text-center">
+                        <h3 class="text-2xl font-bold mb-4 italic">Modern Storefront</h3>
+                        <a href="#" class="inline-block px-8 py-2 rounded-full border border-rose-900 font-bold text-xs uppercase hover:bg-rose-900 hover:text-white transition">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. CONTACT -->
+    <section id="contact" class="py-32 px-6 max-w-3xl mx-auto">
+        <div class="bg-white/30 backdrop-blur-xl p-12 rounded-[4rem] border border-white/40 shadow-2xl" data-aos="fade-up">
+            <h2 class="text-7xl font-curvy mb-8 text-center">Contact Me</h2>
+            <form class="space-y-4">
+                <input type="text" placeholder="Name" class="w-full p-4 rounded-2xl bg-white/50 border border-rose-200 outline-none">
+                <input type="email" placeholder="Email" class="w-full p-4 rounded-2xl bg-white/50 border border-rose-200 outline-none">
+                <textarea placeholder="Your Message" rows="4" class="w-full p-4 rounded-2xl bg-white/50 border border-rose-200 outline-none"></textarea>
+                <button class="w-full py-4 bg-rose-900 text-white rounded-2xl font-bold uppercase tracking-widest hover:bg-rose-800 transition">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 7. FOOTER -->
+    <footer class="pt-24 pb-12 px-6 bg-white/40 backdrop-blur-3xl rounded-t-[5rem] text-center" data-aos="fade-up">
+        <h2 class="text-8xl font-curvy mb-6">Thank You</h2>
+        <div class="flex justify-center gap-8 mb-12">
+            <a href="#" class="text-3xl hover:-translate-y-2 transition-transform inline-block">📸</a>
+            <a href="#" class="text-3xl hover:-translate-y-2 transition-transform inline-block">💼</a>
+            <a href="mailto:contact@codecanvax.com" class="text-3xl hover:-translate-y-2 transition-transform inline-block">✉️</a>
+        </div>
+        <p class="opacity-70 text-sm font-bold tracking-widest">© 2026 CODECANVAX • SWETALI PANDA</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ 
+            duration: 1000, 
+            once: false, // Set to false so animations trigger every time you scroll up/down
+            mirror: true 
+        });
+
+        function startExperience() { 
+            document.getElementById('magic-intro').classList.add('fade-out'); 
+        }
+
+        // Logic to show/hide Nav only during Project Section
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('sticky-nav');
+            const projectSection = document.getElementById('projects');
+            const rect = projectSection.getBoundingClientRect();
+            
+            // If the project section is in view
+            if (rect.top <= 100 && rect.bottom >= 100) {
+                nav.classList.add('visible');
+            } else {
+                nav.classList.remove('visible');
+            }
+        });
+
+        function filterGallery(category, el) {
+            document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+            el.classList.add('active');
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            AOS.refresh();
+        }
+    </script>
+</body>
+</html>
